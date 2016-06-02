@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/login', 'Login@login');
+Route::post('/insert', 'Insert@insertfun');
