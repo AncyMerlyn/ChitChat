@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="primary_background_color" type="color">#4169E1</item>
+    <item name="very_big_text_color" type="color">#FFFFFF</item>
+    <item name="email_color" type="color">#4169E1</item>
+    <item name="email_text_color" type="color">#FFFFFF</item>
+    <item name="password_color" type="color">#4169E1</item>
+    <item name="password_text_color" type="color">#FFFFFF</item>
+    <item name="button_color" type="color">#C0C0C0</item>
+</resources>
