@@ -51,7 +51,7 @@ public class Login extends AppCompatActivity {
     public String login(String email, String pass) {
         String username = email;
         String password = pass;
-        String url = "http://192.168.2.175:8000/login";
+        String url = "http://192.168.1.9:8000/login";
         RequestBody request = new FormBody.Builder()
                             .add("email", username)
                             .add("password", password)
@@ -89,15 +89,17 @@ public class Login extends AppCompatActivity {
 
          protected void onPostExecute(String result) {
              JSONObject jsonResponse = null;
-             boolean isSuccess;
+             boolean isSuccess=false;
              String username = null;
              try {
-                 jsonResponse = new JSONObject(result);
-                 isSuccess = jsonResponse.getBoolean("response");
-                 username = jsonResponse.getString("name");
+                 if(result != null) {
+                     jsonResponse = new JSONObject(result);
+                     isSuccess = jsonResponse.getBoolean("response");
+                     username = jsonResponse.getString("name");
+                 }
              } catch (JSONException e) {
                  e.printStackTrace();
-                 isSuccess = false;
+              //   isSuccess = false;
              }
 
              String message = isSuccess ? "Welcome ".concat(username) : "Login Failed";

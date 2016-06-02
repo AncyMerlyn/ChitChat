@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::post('/login', 'Login@login');
 Route::post('/insert', 'Insert@insertfun');
+Route::post('/contact', 'Contact@resolveContacts');
