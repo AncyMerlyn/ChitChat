@@ -12,8 +12,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.usimedia.chitchat.adapter.ChatContactListAdapter;
@@ -55,7 +58,7 @@ public class Contacts extends AppCompatActivity {
      {
         JSONArray jsonNumbers = new JSONArray(phoneNumbers);
         JSONObject jsonRequest = new JSONObject();
-        jsonRequest.put("numbers",jsonNumbers);
+        jsonRequest.put("numbers", jsonNumbers);
 
         String rawResult = post(CONTACTS_SERVICE_URL, jsonRequest.toString());
         Log.d("Debug", rawResult);
@@ -126,6 +129,8 @@ public class Contacts extends AppCompatActivity {
                 number =number.replaceAll("//s+","");
             }
             contactNumbers.add(number);
+
+
         }
 
         final List<String> distinctNumbers = new ArrayList<>(contactNumbers);
@@ -169,7 +174,7 @@ public class Contacts extends AppCompatActivity {
         }
     }
 
-    public void setListView(List<ChatContacts> result){
+    public void setListView(final List<ChatContacts> result){
         ChatContacts[] chatArray = new ChatContacts[result.size()];
 
         final ArrayAdapter<ChatContacts> contactListAdapter = new ChatContactListAdapter(
@@ -183,8 +188,19 @@ public class Contacts extends AppCompatActivity {
                 result
         );*/
 
+
+
         ListView contactsListView = (ListView) findViewById(R.id.contact_activity_contacts);
         contactsListView.setAdapter(contactListAdapter);
+
+        contactsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent toContactProfileActivity = new Intent(Contacts.this,ChatProfile.class);
+                toContactProfileActivity.putExtra("chat_contact",result.get(position) );
+                startActivity(toContactProfileActivity);
+            }
+        });
 
     }
     @Override

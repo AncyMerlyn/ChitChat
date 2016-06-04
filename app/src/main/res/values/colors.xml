@@ -7,4 +7,5 @@
     <item name="password_color" type="color">#4169E1</item>
     <item name="password_text_color" type="color">#FFFFFF</item>
     <item name="button_color" type="color">#C0C0C0</item>
+    <item name="hello_text_color" type="color">>#4169E1</item>
 </resources>

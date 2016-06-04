@@ -10,4 +10,8 @@
     <string name="login_activity_email">Email</string>
     <string name="login_activity_password">Password</string>
     <string name="login_activity_button_Login">Login</string>
+    <string name="title_activity_contact_profile">ContactProfile</string>
+
+    <string name="hello">Hello</string>
+    <string name="title_activity_chat_profile">ChatProfile</string>
 </resources>
